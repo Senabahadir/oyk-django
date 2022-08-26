@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% load humanize %}
+<center style="margin-top: 40px;">
+
+        <h1> OYK PYTHON 2022 Blog</h1>
+        <br><br><br><br>
+        <h2 style="text-decoration: underline; margin-bottom: 4%;" >Blog Listesi</h2>
+
+        {% for post in postlar %}
+
+        <h3>{{ post.baslik}}</h3>
+        <p>Olusturma: {{ post.olusturma|naturaltime }}, Guncelleme: {{ post.guncelleme}} </p>
+        <h2> <a href=" {% url 'blog_detay' post.link %} "> {{ post.baslik }} </a> </h2>
+        <img style="width: 200px; height: 200px;" src=" {{post.resim.url}} " alt=" {{ post.baslik}} ">
+        <p>{{ post.icerik|truncatechars:80 }}</p>
+        <a href="  {% url 'blog_detay' post.link %} ">Detay</a>
+
+        <p style="margin-bottom: 6%;"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores vel assumenda repudiandae sint ipsa, adipisci blanditiis recusandae autem veniam cupiditate similique perspiciatis repellat itaque, accusamus necessitatibus voluptates tempora mollitia dolores!</p>
+{% endfor %}
+
+</center>
+
+{% endblock %}

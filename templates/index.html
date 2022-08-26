@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+
+<br><br><br>
+
+{% if request.user.is_authenticated %}
+
+Hoşgeldin {{request.user.get_full_name}}
+<h3>Bakiyeniz : {{bakiye}}</h3>
+
+{% else %}
+
+Bakiyeyi görmek için giriş yapınız
+
+{% endif %}
+
+
+<!-- {% include 'menu.html' %} -->
+<h1>Home</h1>
+<h2>Simdiki zaman</h2>
+
+{% for cuzdan in cuzdanlar %}
+        <h1>Cuzdanlariniz</h1>
+        <h3> <b>User name :</b>  {{ cuzdan.user}}</h3>
+        <h3> <b>Para Birimi :</b>  {{ cuzdan.get_para_birimi_display }}</h3>
+        <h3> <b>Bakiyeniz :</b>  {{ cuzdan.bakiye }}</h3>
+
+        <p style="margin-bottom: 6%;"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores vel assumenda repudiandae sint ipsa, adipisci blanditiis recusandae autem veniam cupiditate similique perspiciatis repellat itaque, accusamus necessitatibus voluptates tempora mollitia dolores!</p>
+{% endfor %}
+
+{% now "H:i" %}
+<p>{% lorem %}</p> 
+
+{% endblock %}

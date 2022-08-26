@@ -1,0 +1,11 @@
+<!-- {% extends 'base.html'%}
+
+{% block content %} -->
+<center>
+<h1> {{ post.baslik}} </h1>
+<a href=" {% url 'blog_list' %} ">Geri</a>
+<img src=" {{ post.resim.url }} " alt="" width="200" height="200">
+<h2> {{ post.icerik }} </h2>
+</center>
+
+<!-- {% endblock %} -->
